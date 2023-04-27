@@ -1,59 +1,39 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import store from "./components/store/store";
+
 import Products from "./components/pages/products";
 import Login from "./components/login/login";
 import Navbar from "./components/Header/Navbar";
 import Cart from "./components/context/cart";
 
 function App() {
-  const [cartItems, setCartItems] = React.useState([]);
-
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
-
-  const removeFromCart = (product) => {
-    const newCartItems = cartItems.filter((item) => item.id !== product.id);
-    setCartItems(newCartItems);
-  };
-
-  const clearCart = () => {
-    setCartItems([]);
-  };
-
   return (
-    <>
-      <Navbar cartItems={cartItems} />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/eshop/*"
-          element={
-            <div>
-              <Navbar cartItems={cartItems} />
-              <Products addToCart={addToCart} />
-            </div>
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cartItems={cartItems}
-              removeFromCart={removeFromCart}
-              clearCart={clearCart}
-            />
-          }
-        />
-      </Routes>
-    </>
+    <Provider store={store}>
+      <>
+        {/* <Navbar /> */}
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/eshop/*"
+            element={
+              <div>
+                <Navbar />
+                <Products />
+              </div>
+            }
+          />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </>
+    </Provider>
   );
 }
 
 export default App;
 
 // import React from "react";
-
 // import { Routes, Route } from "react-router-dom";
 // import Products from "./components/pages/products";
 // import Login from "./components/login/login";
@@ -61,23 +41,45 @@ export default App;
 // import Cart from "./components/context/cart";
 
 // function App() {
+//   const [cartItems, setCartItems] = React.useState([]);
+
+//   const addToCart = (product) => {
+//     setCartItems([...cartItems, product]);
+//   };
+
+//   const removeFromCart = (product) => {
+//     const newCartItems = cartItems.filter((item) => item.id !== product.id);
+//     setCartItems(newCartItems);
+//   };
+
+//   const clearCart = () => {
+//     setCartItems([]);
+//   };
 
 //   return (
 //     <>
-//       {/* <Navbar /> */}
+//       {/* <Navbar cartItems={cartItems} /> */}
 //       <Routes>
 //         <Route path="/" element={<Login />} />
 //         <Route
 //           path="/eshop/*"
 //           element={
 //             <div>
-//               <Navbar />
-//               <Products />
+//               <Navbar cartItems={cartItems} />
+//               <Products addToCart={addToCart} />
 //             </div>
 //           }
 //         />
-//         <Route path="/cart" element={<Cart />} />
-
+//         <Route
+//           path="/cart"
+//           element={
+//             <Cart
+//               cartItems={cartItems}
+//               removeFromCart={removeFromCart}
+//               clearCart={clearCart}
+//             />
+//           }
+//         />
 //       </Routes>
 //     </>
 //   );

@@ -125,6 +125,15 @@
 
 /* ................................................................... */
 
+.srch-drpbtn {
+  display: -webkit-box;
+  margin-left: 18%;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
 .search {
   width: 100%;
   position: relative;
@@ -139,29 +148,8 @@
   height: 30px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  margin-left: 25%;
+  margin-left: 10px;
 }
-
-/* .search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 3px solid #00b4cc;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9dbfaf;
-} */
-
-/* .searchTerm:focus {
-  color: #00b4cc;
-} */
 
 .searchButton {
   width: 50px;
@@ -175,111 +163,203 @@
   font-size: 20px;
 }
 
+.not-found {
+  font-size: 3rem;
+  color: red;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.load {
+  text-align: center;
+  font-size: 4rem;
+}
+
 /* ................................................................... */
+
+/* drop down ..........................................*/
+
+/* Dropdown Button */
+
+.dropbtn {
+  background-color: #ffffff;
+  color: #333333;
+
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid #00b4cc;
+  border-radius: 5px;
+}
+
+/* Dropdown Button Hover */
+.dropbtn:hover {
+  background-color: #f9f9f9;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show Dropdown Content on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Arrow */
+.arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Arrow Rotate on Dropdown Hover */
+.dropdown:hover .arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Dropdown Content Links */
+.dropdown-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+}
+
+.dropdown-content li {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.dropdown-content li:hover {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.dropdown-content li a {
+  color: #333333;
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 12px 24px;
+  text-decoration: none;
+  position: relative;
+}
+
+.dropdown-content li a:hover {
+  background-color: #f9f9f9;
+}
+.dropdown-content li::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #333333;
+  transition: all 0.7s ease-in;
+}
+
+.dropdown-content li:hover::before {
+  width: 100%;
+}
+
+/* ............................................................................................................... */
 
 /* footer part */
 
-.footer {
-  color: #ffffff;
+footer {
+  color: white;
   background-color: #232f3e;
+  /* position: fixed; */
   bottom: 0;
 }
 
-.footer-row {
+.row {
   display: flex;
   padding: 1rem;
-  height: 250px;
 }
 
-.footer-column {
+.column {
   width: calc(100% / 3);
   padding: 0 0.9375rem;
 }
 
-.footer-heading {
+.row h4 {
   margin-bottom: 0.9375rem;
   font-size: 1.5rem;
 }
 
-.footer-paragraph {
+.row p {
   font-size: 1rem;
   line-height: 1.3rem;
 }
 
-.footer-list {
+.row ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.footer-list-item {
+.row ul li {
   margin-bottom: 0.625rem;
+}
+
+.row ul li a {
+  color: white;
   font-size: 1rem;
 }
 
-.footer-list-item:hover {
+.row ul li i {
   color: #6faaff;
-  cursor: pointer;
-  text-decoration: underline;
 }
 
-.footer-list-item i {
-  color: #006aff;
+.row ul li a:hover {
+  color: #6faaff;
 }
 
-.footer-social-icons {
+.row ul.social-icons {
   display: flex;
   column-gap: 0.625rem;
 }
 
-.footer-social-icons {
-  cursor: pointer;
-  list-style: none;
+.social-icons i {
+  color: white;
 }
 
-.footer-social-icons li {
+.row ul.social-icons li {
+  margin-bottom: 0rem;
+}
+
+.row ul.social-icons li a {
   display: grid;
-  font-size: 2rem;
-  margin-left: 0%;
-  top: 0%;
+  place-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  background-color: #3c8fa0;
+  color: black;
 }
 
-.footer-copyright {
+.row ul.social-icons li:hover a {
+  background-color: #a6e3f6;
+}
+
+.copyright {
   text-align: center;
   color: #fff;
   background-color: #000000;
   padding: 0.6rem 0;
   height: 30px;
-}
-
-/* Responsive adjustments */
-
-@media screen and (max-width: 768px) {
-  .column {
-    margin: 0.4rem 0;
-    width: 100%;
-    padding: 0;
-  }
-
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  h4 {
-    font-size: 1.3125rem;
-  }
-
-  p {
-    font-size: 0.9375rem;
-  }
-
-  ul li a {
-    font-size: 0.9375rem;
-  }
-
-  ul.social-icons li a {
-    width: 1.875rem;
-    height: 1.875rem;
-  }
 }

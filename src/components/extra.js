@@ -1,15 +1,145 @@
-// function merged(word1, word2) {
-//   let merged = "";
-//   const len = Math.max(word1.length, word2.length);
-//   for (let i = 0; i < len; i++) {
-//     if (i < word1.length) {
-//       merged += word1[i];
+// function Products() {
+//     const [products, setProducts] = useState([]);
+//     const [searchTerm, setSearchTerm] = useState("");
+//     const [isLoading, setIsLoading] = useState(true);
+//     // const [cartItems, setCartItems] = useState([]);
+//     const { category } = useParams();
+//     const dispatch = useDispatch();
+//     const [selectCategory, setSelectCatagory] = useState("All");
+//     const [search, setSearch] = useState([]);
+
+//     useEffect(() => {
+//       setIsLoading(true);
+
+//       let url = "https://fakestoreapi.com/products";
+//       if (category) {
+//         url += `/category/${category}`;
+//       }
+
+//       FakeStoreApi.fetchAllProducts(url)
+//         .then((data) => {
+//           setProducts(data);
+//           setIsLoading(false);
+//         })
+//         .catch((error) => console.log(error));
+//     }, [category]);
+
+//     function handleCategoryClick(category) {
+//       setSelectCatagory(category);
 //     }
-//     if (i < word2.length) {
-//       merged += word2[i];
-//     }
-//   }
-//   return merged;
-// }
-// console.log(merged("a", "def"));
-// console.log("abcd");
+
+//     const productFilterdata = useMemo(() => {
+//       return products.filter((data) => {
+//         if (selectCategory === "All") {
+//           return (
+//             data.category.toLowerCase().includes(search) ||
+//             data.title.toLowerCase().includes(search)
+//           );
+//         } else {
+//           return (
+//             data.category.toLowerCase() === selectCategory.toLowerCase() &&
+//             (search === "" || data.title.toLowerCase().includes(search))
+//           );
+//         }
+//       });
+//     }, [search, selectCategory, products]);
+
+//     const slides = [
+//       {
+//         id: 1,
+//         src: logo,
+//       },
+//       {
+//         id: 2,
+//         src: logo1,
+//       },
+//       {
+//         id: 3,
+//         src: logo2,
+//       },
+//     ];
+
+//     const filteredProducts = products
+//       .filter((product) =>
+//         product.title.toLowerCase().includes(searchTerm.toLowerCase())
+//       )
+//       .filter((product) => {
+//         if (!category) {
+//           return true;
+//         }
+//         return product.category.toLowerCase() === category.toLowerCase();
+//       });
+
+//     const handleAddToCart = (products) => {
+//       dispatch(addToCart(products));
+//     };
+
+//     return (
+//       <div className="container">
+//         <Slider slides={slides} />
+
+//         <h1 className="heading">𝐎𝐔𝐑 𝐏𝐑𝐎𝐃𝐔𝐂𝐓𝐒</h1>
+//         <div className="srch-drpbtn">
+//           <div class="dropdown">
+//             <button class="dropbtn">
+//               CATEGORIES &nbsp; &nbsp; <span class="arrow">▼</span>
+//             </button>
+//             <div class="dropdown-content">
+//               <ul>
+//                 <li onClick={() => handleCategoryClick("All")}>All Category</li>
+//                 <li onClick={() => handleCategoryClick("Man's clothing")}>
+//                   Man's clothing
+//                 </li>
+//                 <li onClick={() => handleCategoryClick("Woman's clothing")}>
+//                   Woman's clothing
+//                 </li>
+//                 <li onClick={() => handleCategoryClick("Jewelry")}>Jewelry</li>
+//                 <li onClick={() => handleCategoryClick("Electronics")}>
+//                   Electronics
+//                 </li>
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="search">
+//             <input
+//               className="searchTerm"
+//               type="text"
+//               placeholder="Search products..."
+//               onChange={(e) => setSearchTerm(e.target.value)}
+//             />
+//             <button className="searchButton" type="button">
+//               <FontAwesomeIcon icon={faSearch} />
+//             </button>
+//           </div>
+//         </div>
+//         {isLoading ? (
+//           <div className="load">
+//             <FontAwesomeIcon icon={faSpinner} spin />
+//           </div>
+//         ) : (
+//           <div className="product-container">
+//             {filteredProducts.length > 0 ? (
+//               filteredProducts.map((product) => (
+//                 <div className="product" key={product.id}>
+//                   <h3 className="head">{product.title}</h3>
+//                   <img src={product.image} alt={product.title} />
+//                   <p className="description">{product.description}</p>
+//                   <p className="price">$ {product.price}</p>
+//                   <button
+//                     className="add-to-cart-btn"
+//                     onClick={() => handleAddToCart(product)}
+//                   >
+//                     <FontAwesomeIcon icon={faCartPlus} />
+//                     &nbsp; Add to Cart
+//                   </button>
+//                 </div>
+//               ))
+//             ) : (
+//               <div className="not-found">
+//                 Product not found.{" "}
+//                 <FontAwesomeIcon icon={faTimes} beat size="xl" />
+//               </div>
+//             )}
+//           </div>
+//         )}

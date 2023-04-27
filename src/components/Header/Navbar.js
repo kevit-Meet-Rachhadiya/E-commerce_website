@@ -19,15 +19,16 @@ function Navbar() {
             <a href="#goto">HOME</a>
           </li>
           <li>
-            <div class="dropdown">
-              <button class="dropbtn">CATAGORIES ▾</button>
+            {/* <div class="dropdown">
+              <button class="dropbtn">CATEGORIES ▾</button>
               <div class="dropdown-content">
-                <Link to="/eshop">Men's Clothes</Link>
-                <Link to="/eshop">Women's Clothes</Link>
-                <Link to="/eshop">jwellery</Link>
-                <Link to="/eshop">Electronics Item</Link>
+                <Link>All Category</Link>
+                <Link>Man's clothing</Link>
+                <Link>Woman's clothing</Link>
+                <Link>Jewelery</Link>
+                <Link>electronics item</Link>
               </div>
-            </div>
+            </div> */}
           </li>
           <li>
             <Link to="/cart">

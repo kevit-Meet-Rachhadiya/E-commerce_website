@@ -16,6 +16,13 @@ const FakeStoreApi = {
       product.title.toLowerCase().includes(query)
     );
   },
+  fetchProductsByCategory: async (category) => {
+    const res = await fetch(
+      `https://fakestoreapi.com/products/category/${category}`
+    );
+    const result = await res.json();
+    return result;
+  },
 };
 
 export { FakeStoreApi };
