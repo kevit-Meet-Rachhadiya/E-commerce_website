@@ -18,18 +18,7 @@ function Navbar() {
           <li>
             <a href="#goto">HOME</a>
           </li>
-          <li>
-            {/* <div class="dropdown">
-              <button class="dropbtn">CATEGORIES ▾</button>
-              <div class="dropdown-content">
-                <Link>All Category</Link>
-                <Link>Man's clothing</Link>
-                <Link>Woman's clothing</Link>
-                <Link>Jewelery</Link>
-                <Link>electronics item</Link>
-              </div>
-            </div> */}
-          </li>
+          <li></li>
           <li>
             <Link to="/cart">
               <FontAwesomeIcon

@@ -2,6 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import store from "./components/store/store";
+import OneProduct from "./components/pages/oneproduct";
 
 import Products from "./components/pages/products";
 import Login from "./components/login/login";
@@ -24,7 +25,25 @@ function App() {
               </div>
             }
           />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/cart"
+            element={
+              <div>
+                <Navbar />
+                <Cart />
+              </div>
+            }
+          />
+
+          <Route
+            path="/products/:id"
+            element={
+              <div>
+                <Navbar />
+                <OneProduct />
+              </div>
+            }
+          />
         </Routes>
       </>
     </Provider>

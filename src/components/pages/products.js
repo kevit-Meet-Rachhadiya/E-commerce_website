@@ -13,6 +13,8 @@ import {
   faCartPlus,
   faTimes,
   faSpinner,
+  faCaretDown,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -95,7 +97,10 @@ function Products() {
       <div className="srch-drpbtn">
         <div class="dropdown">
           <button class="dropbtn">
-            CATEGORIES &nbsp; &nbsp; <span class="arrow">▼</span>
+            CATEGORIES &nbsp; &nbsp;{" "}
+            <span class="arrow">
+              <FontAwesomeIcon icon={faCaretDown} />
+            </span>
           </button>
           <div class="dropdown-content">
             <ul>
@@ -137,9 +142,12 @@ function Products() {
             filteredProducts.map((product) => (
               <div className="product" key={product.id}>
                 <h3 className="head">{product.title}</h3>
-                <img src={product.image} alt={product.title} />
+                <Link to={`/products/${product.id}`}>
+                  <img src={product.image} alt={product.title} />
+                </Link>
                 <p className="description">{product.description}</p>
                 <p className="price">$ {product.price}</p>
+
                 <button
                   className="add-to-cart-btn"
                   onClick={() => handleAddToCart(product)}
@@ -178,13 +186,22 @@ function Products() {
 
             <ul>
               <li>
-                <Link>Subscription</Link>
+                <Link className="underline">
+                  <FontAwesomeIcon icon={faAngleRight} />
+                  &nbsp;Subscription
+                </Link>
               </li>
               <li>
-                <Link>Contact Us</Link>
+                <Link className="underline">
+                  <FontAwesomeIcon icon={faAngleRight} />
+                  &nbsp;Contact Us
+                </Link>
               </li>
               <li>
-                <Link>Bug report</Link>
+                <Link className="underline">
+                  <FontAwesomeIcon icon={faAngleRight} />
+                  &nbsp;Bug report
+                </Link>
               </li>
             </ul>
           </div>
