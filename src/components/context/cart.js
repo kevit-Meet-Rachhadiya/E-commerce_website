@@ -1,29 +1,90 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./cart.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItems.cart);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [quantities, setQuantities] = useState(
+    cartItems.reduce((acc, item) => {
+      acc[item.id] = item.quantity;
+      return acc;
+    }, {})
+  );
+  const [removedItems, setRemovedItems] = useState([]);
 
   const handleRemoveFromCart = (productId) => {
     dispatch({ type: "cart/removeFromCart", payload: productId });
+    setRemovedItems([...removedItems, productId]);
+  };
+
+  const handleClick = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  const handleIncreaseQuantity = (productId) => {
+    setQuantities((prevState) => {
+      const newQuantities = {
+        ...prevState,
+        [productId]: prevState[productId] + 1,
+      };
+      updateCartItem(productId, newQuantities[productId]);
+      return newQuantities;
+    });
+  };
+
+  const handleDecreaseQuantity = (productId) => {
+    setQuantities((prevState) => {
+      const newQuantities = {
+        ...prevState,
+        [productId]: prevState[productId] - 1,
+      };
+      if (newQuantities[productId] < 1) {
+        newQuantities[productId] = 1;
+      } else {
+        updateCartItem(productId, newQuantities[productId]);
+      }
+      return newQuantities;
+    });
+  };
+
+  const updateCartItem = (productId, newQuantity) => {
+    dispatch({
+      type: "cart/updateCartItem",
+      payload: {
+        productId,
+        quantity: newQuantity,
+      },
+    });
   };
 
   const cartTotal = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) =>
+      !removedItems.includes(item.id)
+        ? total + item.price * quantities[item.id]
+        : total,
     0
   );
 
   return (
     <div className="cart-container">
-      <h1 className="cart-heading">Your Cart</h1>
-      {cartItems.length === 0 ? (
+      <h1 className="cart-head">Your Cart</h1>
+      {cartItems.filter((item) => !removedItems.includes(item.id)).length ===
+      0 ? (
         <p className="cart-empty-message">Your cart is empty.</p>
       ) : (
         <table className="cart-table">
           <thead>
-            <tr>
-              <th>Image</th>
+            <tr className="cart-heading">
+              <th>Product Image</th>
               <th>Item Title</th>
               <th>Price</th>
               <th>Quantity</th>
@@ -32,40 +93,66 @@ function Cart() {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <img
-                    className="cart-item-image"
-                    src={item.image}
-                    alt={item.title}
-                  />
-                </td>
-                <td>{item.title}</td>
-                <td>${item.price}</td>
-                <td>{item.quantity}</td>
-                <td>
-                  <button
-                    className="remove-from-cart-btn"
-                    onClick={() => handleRemoveFromCart(item.id)}
-                  >
-                    Remove
-                  </button>
-                </td>
-                <td>${(item.price * item.quantity).toFixed(2)}</td>
-              </tr>
-            ))}
+            {cartItems
+              .filter((item) => !removedItems.includes(item.id))
+              .map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <img
+                      className="cart-item-image"
+                      src={item.image}
+                      alt={item.title}
+                    />
+                  </td>
+                  <td className="cart-title">{item.title}</td>
+                  <td className="cart-price">${item.price}</td>
+                  <td>
+                    <div className="quantity">
+                      <button onClick={() => handleDecreaseQuantity(item.id)}>
+                        -
+                      </button>
+                      <span>&nbsp;&nbsp;{quantities[item.id]}&nbsp;&nbsp;</span>
+                      <button onClick={() => handleIncreaseQuantity(item.id)}>
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <button
+                      className="remove-from-cart-btn"
+                      onClick={() => handleRemoveFromCart(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                  <td className="cart-price">
+                    ${(item.price * quantities[item.id]).toFixed(2)}
+                  </td>
+                </tr>
+              ))}
             <tr>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td className="cart-subtotal">Sub Total</td>
+
               <td>
                 <p className="cart-total">
                   Total: <strong>${cartTotal.toFixed(2)}</strong>
                 </p>
-                <button className="checkout-btn">Checkout</button>
+                <button
+                  className="checkout-btn"
+                  disabled={isLoading}
+                  onClick={handleClick}
+                >
+                  {isLoading ? (
+                    <FontAwesomeIcon icon={faSpinner} spin />
+                  ) : (
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                  )}
+                  &nbsp; {isLoading ? "Processing" : "Checkout"}
+                </button>
               </td>
             </tr>
           </tbody>
@@ -76,70 +163,3 @@ function Cart() {
 }
 
 export default Cart;
-
-// import { useSelector, useDispatch } from "react-redux";
-// import "./cart.css";
-
-// function Cart() {
-//   const dispatch = useDispatch();
-//   const cartItems = useSelector((state) => state.cartItems.cart);
-
-//   const handleRemoveFromCart = (productId) => {
-//     dispatch({ type: "cart/removeFromCart", payload: productId });
-//   };
-
-//   const cartTotal = cartItems.reduce(
-//     (total, item) => total + item.price * item.quantity,
-//     0
-//   );
-
-//   return (
-//     <div className="cart-container">
-//       <h1 className="cart-heading">Your Cart</h1>
-//       {cartItems.length === 0 ? (
-//         <p className="cart-empty-message">Your cart is empty.</p>
-//       ) : (
-//         <>
-//           {cartItems.map((item) => (
-//             <div className="cart-item-container" key={item.id}>
-//               <div className="cart-item">
-//                 <img
-//                   className="cart-item-image"
-//                   src={item.image}
-//                   alt={item.title}
-//                 />
-//                 <div className="cart-item-details">
-//                   <h3 className="cart-item-title">{item.title}</h3>
-//                   <p className="cart-item-price">${item.price}</p>
-//                   <p className="cart-item-quantity">
-//                     Quantity: {item.quantity}
-//                   </p>
-//                   <button
-//                     className="remove-from-cart-btn"
-//                     onClick={() => handleRemoveFromCart(item.id)}
-//                   >
-//                     Remove
-//                   </button>
-//                 </div>
-//                 <div className="cart-item-total">
-//                   <p className="cart-item-total-text">
-//                     Total:{" "}
-//                     <strong>${(item.price * item.quantity).toFixed(2)}</strong>
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//           <div className="cart-total-container">
-//             <p className="cart-total">
-//               Total: <strong>${cartTotal.toFixed(2)}</strong>
-//             </p>
-//             <button className="checkout-btn">Checkout</button>
-//           </div>
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Cart;

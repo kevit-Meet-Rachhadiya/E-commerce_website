@@ -36,7 +36,7 @@
 
 .navbar-links li a {
   font-size: 18px;
-  color: darkblue;
+  color: rgb(12, 86, 146);
   text-decoration: none;
   padding: 10px;
   transition: background-color 0.3s ease;

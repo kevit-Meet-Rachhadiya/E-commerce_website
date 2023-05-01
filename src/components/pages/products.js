@@ -14,14 +14,8 @@ import {
   faTimes,
   faSpinner,
   faCaretDown,
-  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookF,
-  faInstagram,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slice/slice";
@@ -168,7 +162,7 @@ function Products() {
 
       {/* // ............................................................ ......................*/}
 
-      <footer>
+      {/* <footer>
         <div class="row">
           <div class="column">
             <h4>About Us</h4>
@@ -238,7 +232,7 @@ function Products() {
         </div>
 
         <p class="copyright">© 2023 All Rights Reserved</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }

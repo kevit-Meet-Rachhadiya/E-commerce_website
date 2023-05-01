@@ -32,25 +32,6 @@
   }
 }
 
-/* .login-container form {
-  display: flex;
-  flex-direction: column;
-  animation-name: flip;
-  animation-duration: 0.4s;
-  animation-fill-mode: both;
-  transform-style: preserve-3d;
-}
-
-@keyframes flip {
-  0% {
-    transform: perspective(1000px) rotateY(180deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
-  
-} */
-
 .login-container form {
   display: flex;
   flex-direction: column;
@@ -106,5 +87,6 @@
 .acc-link {
   color: #0069d9;
   cursor: pointer;
+  font-weight: bold;
   text-decoration: underline;
 }

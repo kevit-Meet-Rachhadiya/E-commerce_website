@@ -2,7 +2,11 @@ import "./Navbar.css";
 import Logo from "./logo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartArrowDown,
+  faUser,
+  faHouse,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   return (
@@ -16,9 +20,15 @@ function Navbar() {
       <div className="navbar-menu">
         <ul className="navbar-links">
           <li>
-            <a href="#goto">HOME</a>
+            <Link to="/eshop">
+              <FontAwesomeIcon className="cart-icon-size" icon={faHouse} />
+            </Link>
           </li>
-          <li></li>
+          <li>
+            <Link>
+              <FontAwesomeIcon className="cart-icon-size" icon={faUser} />
+            </Link>
+          </li>
           <li>
             <Link to="/cart">
               <FontAwesomeIcon

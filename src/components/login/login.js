@@ -12,18 +12,10 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === "admin" && password === "password") {
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+    if (username === storedUsername && password === storedPassword) {
       console.log("Logged in successfully");
-      fetch("https://fakestoreapi.com/auth/login", {
-        method: "POST",
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((json) => console.log(json)); // store the data from API here
-
       navigate("/eshop");
     } else {
       setError("*Invalid username or password");
@@ -98,8 +90,18 @@ export default Login;
 
 //   const handleLogin = (e) => {
 //     e.preventDefault();
-//     if (username === "admin" && password === "password") {
+//     if (username === "username" && password === "password") {
 //       console.log("Logged in successfully");
+//       fetch("https://fakestoreapi.com/auth/login", {
+//         method: "POST",
+//         body: JSON.stringify({
+//           username: username,
+//           password: password,
+//         }),
+//       })
+//         .then((res) => res.json())
+//         .then((json) => console.log(json)); // store the data from API here
+
 //       navigate("/eshop");
 //     } else {
 //       setError("*Invalid username or password");
@@ -133,7 +135,9 @@ export default Login;
 //               onChange={(e) => setPassword(e.target.value)}
 //             />
 //             {error && <div className="error">{error}</div>}
-//             <button type="submit">𝐋𝐎𝐆𝐈𝐍 »</button>
+//             <button type="submit" onClick={handleLogin}>
+//               𝐋𝐎𝐆𝐈𝐍 »
+//             </button>
 //             <p>
 //               Don't have an Account yet ? &nbsp;&nbsp;
 //               <span

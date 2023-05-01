@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import store from "./components/store/store";
 import OneProduct from "./components/pages/oneproduct";
-
+import Footer from "./components/Header/footer";
 import Products from "./components/pages/products";
 import Login from "./components/login/login";
 import Navbar from "./components/Header/Navbar";
@@ -13,7 +13,6 @@ function App() {
   return (
     <Provider store={store}>
       <>
-        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
@@ -22,6 +21,7 @@ function App() {
               <div>
                 <Navbar />
                 <Products />
+                <Footer />
               </div>
             }
           />
@@ -31,6 +31,7 @@ function App() {
               <div>
                 <Navbar />
                 <Cart />
+                <Footer />
               </div>
             }
           />
