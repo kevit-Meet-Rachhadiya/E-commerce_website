@@ -20,7 +20,6 @@ import {
   faShare,
   faDesktop,
 } from "@fortawesome/free-solid-svg-icons";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slice/slice";
