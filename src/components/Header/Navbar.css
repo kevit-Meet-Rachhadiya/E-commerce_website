@@ -36,7 +36,7 @@
 
 .navbar-links li a {
   font-size: 18px;
-  color: rgb(12, 86, 146);
+  color: rgb(0, 69, 125);
   text-decoration: none;
   padding: 10px;
   transition: background-color 0.3s ease;
@@ -78,4 +78,39 @@
   height: 35px;
   width: 35px;
   cursor: pointer;
+}
+
+/* dropdown....................................................................... */
+
+li.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 120px;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  text-align: left;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f2f2f2;
+}
+
+li.dropdown:hover .dropdown-menu {
+  display: block;
 }

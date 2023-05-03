@@ -276,6 +276,10 @@
   width: 100%;
 }
 
+.category-icon {
+  font-size: 25px;
+}
+
 /* ............................................................................................................... */
 
 /* footer part */
@@ -285,6 +289,9 @@ footer {
   background-color: #232f3e;
   /* position: fixed; */
   bottom: 0;
+}
+.footer-part {
+  margin-bottom: 0px;
 }
 
 .row {

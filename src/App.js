@@ -8,6 +8,7 @@ import Products from "./components/pages/products";
 import Login from "./components/login/login";
 import Navbar from "./components/Header/Navbar";
 import Cart from "./components/context/cart";
+import UserProfile from "./components/pages/userprofile";
 
 function App() {
   return (
@@ -42,9 +43,11 @@ function App() {
               <div>
                 <Navbar />
                 <OneProduct />
+                <Footer />
               </div>
             }
           />
+          <Route path="UserProfile" element={<UserProfile />} />
         </Routes>
       </>
     </Provider>

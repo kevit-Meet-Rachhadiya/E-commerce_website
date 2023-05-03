@@ -11,7 +11,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer-part">
       <div className="row">
         <div className="column">
           <h4>About Us</h4>

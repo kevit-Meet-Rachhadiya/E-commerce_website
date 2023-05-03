@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import "./cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Alert, AlertTitle } from "@mui/material";
 
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItems.cart);
   const [isLoading, setIsLoading] = useState(false);
+  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
 
   const [quantities, setQuantities] = useState(
     cartItems.reduce((acc, item) => {
@@ -17,18 +19,29 @@ function Cart() {
   );
   const [removedItems, setRemovedItems] = useState([]);
 
+  const handleCheckout = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setCheckoutSuccess(true);
+      setTimeout(() => {
+        setCheckoutSuccess(false);
+      }, 5000);
+    }, 2000);
+  };
+
   const handleRemoveFromCart = (productId) => {
     dispatch({ type: "cart/removeFromCart", payload: productId });
     setRemovedItems([...removedItems, productId]);
   };
 
-  const handleClick = () => {
-    setIsLoading(true);
+  // const handleClick = () => {
+  //   setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 2000);
+  // };
 
   const handleIncreaseQuantity = (productId) => {
     setQuantities((prevState) => {
@@ -76,7 +89,7 @@ function Cart() {
 
   return (
     <div className="cart-container">
-      <h1 className="cart-head">Your Cart</h1>
+      <h1 className="cart-head">𝐒𝐡𝐨𝐩𝐩𝐢𝐧𝐠 𝐂𝐚𝐫𝐭</h1>
       {cartItems.filter((item) => !removedItems.includes(item.id)).length ===
       0 ? (
         <p className="cart-empty-message">Your cart is empty.</p>
@@ -144,7 +157,7 @@ function Cart() {
                 <button
                   className="checkout-btn"
                   disabled={isLoading}
-                  onClick={handleClick}
+                  onClick={handleCheckout}
                 >
                   {isLoading ? (
                     <FontAwesomeIcon icon={faSpinner} spin />
@@ -153,6 +166,14 @@ function Cart() {
                   )}
                   &nbsp; {isLoading ? "Processing" : "Checkout"}
                 </button>
+                {checkoutSuccess && (
+                  <div className="success-popup">
+                    <Alert severity="success">
+                      <AlertTitle>Success</AlertTitle>
+                      Your order has been placed successfully!
+                    </Alert>
+                  </div>
+                )}
               </td>
             </tr>
           </tbody>

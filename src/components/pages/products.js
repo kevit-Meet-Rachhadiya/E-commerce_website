@@ -14,6 +14,11 @@ import {
   faTimes,
   faSpinner,
   faCaretDown,
+  faPerson,
+  faGem,
+  faPersonDress,
+  faShare,
+  faDesktop,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
@@ -98,17 +103,28 @@ function Products() {
           </button>
           <div class="dropdown-content">
             <ul>
-              <li onClick={() => handleCategoryClick("All")}>All Category</li>
-
+              <li onClick={() => handleCategoryClick("All")}>
+                <FontAwesomeIcon className="category-icon" icon={faShare} />
+                &nbsp; &nbsp; All Category
+              </li>
               <li onClick={() => handleCategoryClick("men's clothing")}>
-                Men's clothing
+                <FontAwesomeIcon className="category-icon" icon={faPerson} />
+                &nbsp; &nbsp; Men's clothing
               </li>
               <li onClick={() => handleCategoryClick("women's clothing")}>
-                Women's clothing
+                <FontAwesomeIcon
+                  className="category-icon"
+                  icon={faPersonDress}
+                />
+                &nbsp; &nbsp; Women's clothing
               </li>
-              <li onClick={() => handleCategoryClick("jewelery")}>Jewelry</li>
+              <li onClick={() => handleCategoryClick("jewelery")}>
+                <FontAwesomeIcon className="category-icon" icon={faGem} />
+                &nbsp; &nbsp; Jwellery
+              </li>
               <li onClick={() => handleCategoryClick("electronics")}>
-                Electronics
+                <FontAwesomeIcon className="category-icon" icon={faDesktop} />
+                &nbsp; &nbsp; Electronics
               </li>
             </ul>
           </div>
@@ -159,80 +175,6 @@ function Products() {
           )}
         </div>
       )}
-
-      {/* // ............................................................ ......................*/}
-
-      {/* <footer>
-        <div class="row">
-          <div class="column">
-            <h4>About Us</h4>
-
-            <p>
-              We are an e-commerce demo website, showcasing the latest trends in
-              fashion and lifestyle products. Our mission is to provide our
-              customers with the best shopping experience, from the comfort of
-              their own homes.
-            </p>
-          </div>
-
-          <div class="column">
-            <h4>Quick Links</h4>
-
-            <ul>
-              <li>
-                <Link className="underline">
-                  <FontAwesomeIcon icon={faAngleRight} />
-                  &nbsp;Subscription
-                </Link>
-              </li>
-              <li>
-                <Link className="underline">
-                  <FontAwesomeIcon icon={faAngleRight} />
-                  &nbsp;Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link className="underline">
-                  <FontAwesomeIcon icon={faAngleRight} />
-                  &nbsp;Bug report
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div class="column">
-            <h4>Connect with Us</h4>
-
-            <ul className="social-icons">
-              <li>
-                <Link>
-                  <FontAwesomeIcon icon={faFacebookF} />
-                </Link>
-              </li>
-
-              <li>
-                <Link>
-                  <FontAwesomeIcon icon={faInstagram} />
-                </Link>
-              </li>
-
-              <li>
-                <Link>
-                  <FontAwesomeIcon icon={faTwitter} />
-                </Link>
-              </li>
-
-              <li>
-                <Link>
-                  <FontAwesomeIcon icon={faGithub} />
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="copyright">© 2023 All Rights Reserved</p>
-      </footer> */}
     </div>
   );
 }
