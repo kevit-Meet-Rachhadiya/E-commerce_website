@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartArrowDown,
   faUser,
-  faHouse,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
@@ -21,11 +21,6 @@ function Navbar() {
       <div className="navbar-menu">
         <ul className="navbar-links">
           <li>
-            <Link to="/eshop">
-              <FontAwesomeIcon className="cart-icon-size" icon={faHouse} />
-            </Link>
-          </li>
-          <li className="dropdown">
             <Link to="/UserProfile">
               <FontAwesomeIcon className="cart-icon-size" icon={faUser} />
             </Link>
@@ -38,6 +33,15 @@ function Navbar() {
               />
             </Link>
           </li>
+          <li className="side-line">
+            <Link to="/">
+              <FontAwesomeIcon
+                className="cart-icon-size"
+                icon={faRightFromBracket}
+              />
+            </Link>
+          </li>
+          <span className="logout-span">Log Out</span>
         </ul>
       </div>
     </nav>

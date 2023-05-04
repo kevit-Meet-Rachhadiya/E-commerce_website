@@ -47,7 +47,15 @@ function App() {
               </div>
             }
           />
-          <Route path="UserProfile" element={<UserProfile />} />
+          <Route
+            path="UserProfile"
+            element={
+              <div>
+                <Navbar />
+                <UserProfile />
+              </div>
+            }
+          />
         </Routes>
       </>
     </Provider>

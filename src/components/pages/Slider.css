@@ -1,12 +1,12 @@
 .slider {
   position: relative;
   height: 550px;
+  /* overflow: hidden; */
 }
 
 .slider img {
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
   margin-top: 89px;
   transition: transform 0.5s ease-in-out;
 }
@@ -26,7 +26,70 @@
   border: none;
   cursor: pointer;
   height: 40px;
-  /* width: 40px; */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-control-left {
+  left: 20px;
+  font-size: 3rem;
+  margin-top: 75px;
+  color: white;
+}
+
+.slider-control-right {
+  right: 20px;
+  font-size: 3rem;
+  margin-top: 75px;
+  color: white;
+}
+
+.slider-controls button {
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-left {
+  animation: slideLeft 0.5s forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.5s forwards;
+}
+
+/* .slider {
+  position: relative;
+  height: 550px;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  margin-top: 89px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.slider-control {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -41,7 +104,6 @@
 }
 
 .slider-controls button {
-  /* padding: 10px 20px; */
   border: none;
   border-radius: 5px;
   background-color: transparent;
@@ -49,4 +111,70 @@
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+} */
+/* ....................................................................................... */
+/* .slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+
+.slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+.slider img.previous {
+  left: -100%;
+}
+
+.slider img.next {
+  left: 100%;
+}
+
+.slider img.swipe-previous {
+  left: 0;
+  opacity: 0;
+}
+
+.slider img.swipe-next {
+  left: 0;
+  opacity: 0;
+}
+
+@keyframes swipe-previous {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes swipe-next {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.slider img.swipe-previous.active {
+  animation: swipe-previous 0.5s ease-in-out forwards;
+}
+
+.slider img.swipe-next.active {
+  animation: swipe-next 0.5s ease-in-out forwards;
+} */

@@ -18,6 +18,15 @@ const Login = () => {
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const navigate = useNavigate();
 
+  const myFunction = () => {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const storedUsername = localStorage.getItem("username");
@@ -72,7 +81,13 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              id="myInput"
             />
+            <span>
+              <input type="checkbox" onClick={myFunction} />
+              &nbsp; Show Password
+            </span>
+
             {error && <div className="error">{error}</div>}
             <Button type="submit" onClick={handleLogin} variant="contained">
               𝐋𝐎𝐆𝐈𝐍 »
@@ -105,7 +120,7 @@ const Login = () => {
               {localStorage.getItem("firstName") +
                 " " +
                 localStorage.getItem("lastName")}{" "}
-              ! You are logged in successfully.
+              ! You are logged in successfully.🥳
             </p>
           </DialogContent>
           <DialogActions>

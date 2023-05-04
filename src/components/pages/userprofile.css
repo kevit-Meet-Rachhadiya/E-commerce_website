@@ -1,19 +1,36 @@
 .card {
-  background-color: #fff;
+  background-color: lightblue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   border-radius: 8px;
-  width: 300px;
-  margin: 160px auto;
+  width: 65vh;
+  margin: auto;
+}
+.user-card {
+  margin-left: 35%;
+}
+
+.user-container {
+  background-image: url("./young-person-presenting-empty-copyspace.jpg");
+  background-size: 100% 106%;
+  background-repeat: no-repeat;
+  margin-top: 3%;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card h2 {
   font-size: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
 }
 
 .card p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 8px;
 }
 
@@ -25,15 +42,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 20vh;
+  height: 20vh;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  margin-top: -50px;
+  margin-top: -60px;
 }
 
 .avatar {
+  width: 113%;
+  height: 113%;
+}
+
+.user-tabel {
+  height: 30vh;
   width: 100%;
-  height: auto;
+}
+.user-tabel td {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+/* ........................................................ */
+
+.btn {
+  font-size: 16px;
+  color: #fff;
+  background-color: #0066cc;
+  padding: 12px 30px;
+  border: 2px solid #0066cc;
+
+  border-radius: 15px;
+  transition: 1000ms;
+  transform: translateY(0);
+  margin-left: 37%;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  transition: 1000ms;
+  /* padding: 12px 50px; */
+  transform: translateY(-0px);
+  background-color: lightblue;
+  color: #0066cc;
+  border: solid 2px #0066cc;
 }

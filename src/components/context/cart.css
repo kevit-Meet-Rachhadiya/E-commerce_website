@@ -141,6 +141,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation: show-popup 0.5s ease forwards;
+  font-weight: bold;
 }
 
 @keyframes show-popup {

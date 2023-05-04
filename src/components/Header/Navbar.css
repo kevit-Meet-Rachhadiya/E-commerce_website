@@ -50,7 +50,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: blue;
+  background-color: rgb(0, 69, 125);
   animation: underline 0.7s forwards;
 }
 
@@ -80,6 +80,16 @@
   cursor: pointer;
 }
 
+.side-line {
+  border-left: 4px solid rgb(0, 69, 125);
+}
+
+.logout-span {
+  margin-top: 3px;
+  color: #00457d;
+  font-size: 20px;
+  font-weight: bold;
+}
 /* dropdown....................................................................... */
 
 li.dropdown {
