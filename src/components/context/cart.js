@@ -5,11 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Alert, AlertTitle } from "@mui/material";
 
+import { useEffect } from "react";
+
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItems.cart);
   const [isLoading, setIsLoading] = useState(false);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [quantities, setQuantities] = useState(
     cartItems.reduce((acc, item) => {

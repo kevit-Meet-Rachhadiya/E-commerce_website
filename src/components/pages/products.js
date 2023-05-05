@@ -6,6 +6,8 @@ import { useMemo } from "react";
 import logo from "./online.jpg";
 import logo1 from "./jwallery.png";
 import logo2 from "./wireless-earphone-product-ads-banner_252779-450.jpg";
+import logo3 from "./3972497.jpg";
+import logo4 from "./6003853.jpg";
 import { FakeStoreApi } from "../service/fake-store-api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -31,7 +33,10 @@ function Products() {
   const dispatch = useDispatch();
   const [selectCategory, setSelectCategory] = useState("All");
   const [search, setSearch] = useState("");
-  // const [addedToCart, setAddedToCart] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -81,6 +86,14 @@ function Products() {
     {
       id: 3,
       src: logo2,
+    },
+    {
+      id: 4,
+      src: logo3,
+    },
+    {
+      id: 5,
+      src: logo4,
     },
   ];
 
@@ -168,7 +181,11 @@ function Products() {
                   <img src={product.image} alt={product.title} />
                 </Link>
                 <p className="description">{product.description}</p>
-                <p className="price">$ {product.price}</p>
+                <p className="price">
+                  {" "}
+                  Price: &nbsp;$
+                  {product.price}
+                </p>
 
                 <button
                   className="add-to-cart-btn"
