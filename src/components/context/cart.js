@@ -92,7 +92,7 @@ function Cart() {
       <h1 className="cart-head">𝐒𝐡𝐨𝐩𝐩𝐢𝐧𝐠 𝐂𝐚𝐫𝐭</h1>
       {cartItems.filter((item) => !removedItems.includes(item.id)).length ===
       0 ? (
-        <p className="cart-empty-message">Your cart is empty.</p>
+        <p className="cart-empty-message">𝐘𝐨𝐮𝐫 𝐜𝐚𝐫𝐭 𝐢𝐬 𝐞𝐦𝐩𝐭𝐲.</p>
       ) : (
         <table className="cart-table">
           <thead>
@@ -148,7 +148,7 @@ function Cart() {
               <td></td>
               <td></td>
               <td></td>
-              <td className="cart-subtotal">Sub Total</td>
+              <td className="cart-subtotal">𝐒𝐮𝐛 𝐓𝐨𝐭𝐚𝐥 :</td>
 
               <td>
                 <p className="cart-total">
@@ -164,13 +164,13 @@ function Cart() {
                   ) : (
                     <FontAwesomeIcon icon={faShoppingCart} />
                   )}
-                  &nbsp; {isLoading ? "Processing" : "Checkout"}
+                  &nbsp; {isLoading ? "𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠" : "𝐂𝐡𝐞𝐜𝐤𝐨𝐮𝐭"}
                 </button>
                 {checkoutSuccess && (
                   <div className="success-popup">
                     <Alert severity="success">
-                      <AlertTitle>Success</AlertTitle>
-                      Your order has been placed successfully!
+                      <AlertTitle>𝐒𝐮𝐜𝐜𝐞𝐬𝐬</AlertTitle>
+                      𝐘𝐨𝐮𝐫 𝐨𝐫𝐝𝐞𝐫 𝐡𝐚𝐬 𝐛𝐞𝐞𝐧 𝐩𝐥𝐚𝐜𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲!
                     </Alert>
                   </div>
                 )}

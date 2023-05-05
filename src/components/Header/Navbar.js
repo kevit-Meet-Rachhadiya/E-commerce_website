@@ -41,7 +41,7 @@ function Navbar() {
               />
             </Link>
           </li>
-          <span className="logout-span">Log Out</span>
+          <span className="logout-span">𝐋𝐨𝐠 𝐎𝐮𝐭</span>
         </ul>
       </div>
     </nav>

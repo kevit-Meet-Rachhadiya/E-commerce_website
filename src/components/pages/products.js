@@ -108,7 +108,7 @@ function Products() {
       <div className="srch-drpbtn">
         <div class="dropdown">
           <button class="dropbtn">
-            CATEGORIES &nbsp; &nbsp;{" "}
+            𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐈𝐄𝐒 &nbsp; &nbsp;{" "}
             <span class="arrow">
               <FontAwesomeIcon icon={faCaretDown} />
             </span>
@@ -175,13 +175,13 @@ function Products() {
                   onClick={() => handleAddToCart(product)}
                 >
                   <FontAwesomeIcon icon={faCartPlus} />
-                  &nbsp; {product.addedToCart ? "Added" : "Add to Cart"}
+                  &nbsp; {product.addedToCart ? "𝐀𝐝𝐝𝐞𝐝" : "𝐀𝐝𝐝 𝐭𝐨 𝐂𝐚𝐫𝐭"}
                 </button>
               </div>
             ))
           ) : (
             <div className="not-found">
-              Product not found.{" "}
+              𝐏𝐫𝐨𝐝𝐮𝐜𝐭 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝.{" "}
               <FontAwesomeIcon icon={faTimes} beat size="xl" />
             </div>
           )}

@@ -55,13 +55,18 @@
   height: 113%;
 }
 
-.user-tabel {
-  height: 30vh;
-  width: 100%;
+.user-info table {
+  font-weight: 500;
+  padding: 0px;
+  font-size: 20px;
+  height: 25vh;
 }
-.user-tabel td {
-  font-weight: bold;
-  font-size: 19px;
+.user-info input {
+  padding: 6px;
+  border: 2px solid rgb(107, 206, 255);
+  border-radius: 10px;
+  width: 40vh;
+  font-size: 18px;
 }
 
 /* ........................................................ */
