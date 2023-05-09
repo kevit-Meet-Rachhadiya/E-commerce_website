@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./cart.css";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Alert, AlertTitle } from "@mui/material";
-
-import { useEffect } from "react";
+import { Button } from "@mui/material";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -40,14 +40,6 @@ function Cart() {
     dispatch({ type: "cart/removeFromCart", payload: productId });
     setRemovedItems([...removedItems, productId]);
   };
-
-  // const handleClick = () => {
-  //   setIsLoading(true);
-
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000);
-  // };
 
   const handleIncreaseQuantity = (productId) => {
     setQuantities((prevState) => {
@@ -95,6 +87,11 @@ function Cart() {
 
   return (
     <div className="cart-container">
+      <div className="back-cart">
+        <Button component={Link} to="/eshop" variant="contained">
+          👈 Back
+        </Button>
+      </div>
       <h1 className="cart-head">𝐒𝐡𝐨𝐩𝐩𝐢𝐧𝐠 𝐂𝐚𝐫𝐭</h1>
       {cartItems.filter((item) => !removedItems.includes(item.id)).length ===
       0 ? (

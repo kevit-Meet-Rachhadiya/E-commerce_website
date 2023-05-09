@@ -17,7 +17,7 @@ function Footer() {
           <h4>About Us</h4>
 
           <p>
-            We are an e-commerce demo website, showcasing the latest trends in
+            We are an e-commerce website, showcasing the latest trends in
             fashion and lifestyle products. Our mission is to provide our
             customers with the best shopping experience, from the comfort of
             their own homes.

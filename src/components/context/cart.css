@@ -8,7 +8,6 @@
   font-size: 40px;
   color: #00457d;
   margin-left: 41%;
-  margin-top: -40px;
 }
 
 .cart-empty-message {
@@ -154,4 +153,8 @@
     opacity: 1;
     transform: translate(-50%, 0);
   }
+}
+
+.back-cart {
+  margin-top: -44%;
 }

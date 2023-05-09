@@ -101,6 +101,19 @@
   transform: translateY(-0px);
 }
 
+.added-to-cart-btn {
+  background-color: white;
+  color: blue;
+  transition: 500ms;
+  border: 1px solid blue;
+  transform: translateY(-0px);
+}
+
+/* .added-to-cart-btn :hover {
+  background-color: blue;
+  color: white;
+} */
+
 .container {
   position: relative;
   overflow: hidden;
