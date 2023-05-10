@@ -7,8 +7,18 @@
 /* .one-container {
   min-height: 10vh;
 } */
-.back {
+.backlink {
+  /* margin-top: 12vh; */
   margin-top: 12vh;
+  color: rgb(81, 210, 252);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+.backlink :hover {
+  color: blue;
 }
 
 .one-product {
@@ -20,7 +30,6 @@
   background-color: white;
   width: 65%;
   margin-left: 18%;
-
   min-height: 60vh;
 }
 

@@ -4,7 +4,7 @@ import { FakeStoreApi } from "../service/fake-store-api";
 import { faCartPlus, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
-import { Button } from "@mui/material";
+
 import "./oneproduct.css";
 import {
   faStar,
@@ -47,10 +47,10 @@ function OneProduct() {
 
   return (
     <div className="one-container">
-      <div className="back">
-        <Button component={Link} to="/eshop" variant="contained">
-          👈 Back
-        </Button>
+      <div className="backlink">
+        <Link className="backlink" to="/eshop">
+          &nbsp;👈Go To Products
+        </Link>
       </div>
 
       <div className="one-product">
