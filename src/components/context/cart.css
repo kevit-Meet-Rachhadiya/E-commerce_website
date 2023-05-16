@@ -180,3 +180,71 @@
 .backcart :hover {
   color: blue;
 }
+
+/* ..................................................................................... */
+
+@media (max-width: 768px) {
+  .cart-head {
+    font-size: 40px;
+    margin-left: 30%;
+    margin-bottom: 4%;
+  }
+
+  .cart-empty-message {
+    font-size: 2rem;
+    margin-left: 30%;
+  }
+
+  .cart-item-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cart-total-container {
+    margin-top: 10px;
+  }
+
+  .cart-total {
+    font-size: 18px;
+  }
+
+  .checkout-btn {
+    font-size: 16px;
+    padding: 0px 16px;
+  }
+
+  .cart-title {
+    font-size: 14px;
+    max-width: unset;
+  }
+
+  .cart-price {
+    font-size: 16px;
+  }
+
+  .cart-subtotal {
+    font-size: 16px;
+  }
+
+  .quantity button {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .success-popup {
+    font-size: 14px;
+  }
+
+  .back {
+    font-size: 16px;
+  }
+
+  .backcart {
+    margin-left: 40%;
+    font-size: 16px;
+  }
+  .cart-container {
+    margin-top: 14.9%;
+  }
+}

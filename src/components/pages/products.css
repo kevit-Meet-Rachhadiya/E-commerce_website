@@ -46,6 +46,13 @@
   font-weight: 500;
 }
 
+@media only screen and (max-width: 768px) {
+  .product {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+
 @supports (-webkit-line-clamp: 2) {
   .description {
     display: -webkit-box;
@@ -204,6 +211,25 @@
   font-size: 4rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchTerm {
+    width: 30%;
+    font-size: 14px;
+    margin-right: 68%;
+  }
+
+  .searchButton {
+    width: 7%;
+    margin-top: -51px;
+    margin-right: 41%;
+  }
+}
+
 /* ................................................................... */
 
 /* drop down ..........................................*/
@@ -311,96 +337,3 @@
 /* ............................................................................................................... */
 
 /* footer part */
-
-footer {
-  color: white;
-  background-color: #232f3e;
-  /* position: fixed; */
-  bottom: 0;
-  margin-bottom: 0px;
-}
-.footer-part {
-  margin-bottom: 0px;
-}
-
-.row {
-  display: flex;
-  padding: 1rem;
-}
-
-.column {
-  width: calc(100% / 3);
-  padding: 0 0.9375rem;
-}
-
-.row h4 {
-  margin-bottom: 0.9375rem;
-  font-size: 1.5rem;
-}
-
-.row p {
-  font-size: 1rem;
-  line-height: 1.3rem;
-}
-
-.row ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.row ul li {
-  margin-bottom: 0.625rem;
-}
-
-.row ul li a {
-  color: white;
-  font-size: 1rem;
-}
-
-.row ul li i {
-  color: #6faaff;
-}
-
-.row ul li a:hover {
-  color: #6faaff;
-}
-
-.row ul.social-icons {
-  display: flex;
-  column-gap: 0.625rem;
-}
-
-.social-icons i {
-  color: white;
-}
-
-.row ul.social-icons li {
-  margin-bottom: 0rem;
-}
-
-.row ul.social-icons li a {
-  display: grid;
-  place-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 100%;
-  background-color: #3c8fa0;
-  color: black;
-  font-size: 25px;
-}
-
-.row ul.social-icons li:hover a {
-  background-color: #a6e3f6;
-}
-
-.copyright {
-  text-align: center;
-  color: #fff;
-  background-color: #000000;
-  padding: 0.6rem 0;
-  height: 30px;
-}
-.underline {
-  text-decoration: none;
-}
